@@ -15,10 +15,12 @@ function App() {
   const options = Object.keys(currencyInfo)
 
   const swap = () => {
+    let temp = from;
+    let tempA = convertedAmount;
     setFrom(to)
-    setTo(from)
+    setTo(temp)
     setConvertedAmount(amount)
-    setAmount(convertedAmount)
+    setAmount(tempA)
   }
   
   const convert = () => {
@@ -46,7 +48,7 @@ function App() {
                             label="From"
                             amount={amount}
                             currencyOptions={options}
-                            onCurrencyChange={(currency) => setAmount(amount)}
+                            onCurrencyChange={(currency) => setFrom(currency)}
                             selectCurrency={from}
                             onAmountChange={(amount) => setAmount(amount)}
                         />
